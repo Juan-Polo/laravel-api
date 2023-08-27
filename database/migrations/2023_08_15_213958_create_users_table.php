@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('Apellidos');
             $table->string('Correo Electronico');
             $table->string('Contraseña');
-
-            $table->unsignedBigInteger('role_id')->unique();
-           
+            // $table->foreignId('role_id')->constrained();
+            // $table->unsignedBigInteger('role_id')->unique();
+           $table->unsignedBigInteger('role_id')->constrained();
              $table->foreign('role_id')
              ->references('id')
              ->on('roles');

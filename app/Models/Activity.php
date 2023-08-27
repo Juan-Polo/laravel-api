@@ -11,4 +11,10 @@ class Activity extends Model
     public function degree() {
         return $this->belongsTo('App\Models\Degree');
       }
+
+
+      public function evidence()
+      {
+          return $this->hasMany('App\Models\Evidence');
+      }
 }
