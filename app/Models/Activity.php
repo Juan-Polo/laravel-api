@@ -8,13 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model
 {
     use HasFactory;
-    public function degree() {
-        return $this->belongsTo('App\Models\Degree');
+    public function asignatura() {
+        return $this->belongsTo('App\Models\Asignatura');
       }
 
 
-      public function evidence()
+      public function evidencias()
       {
-          return $this->hasMany('App\Models\Evidence');
+          return $this->hasMany('App\Models\Evidencia');
       }
+
+
+      
 }

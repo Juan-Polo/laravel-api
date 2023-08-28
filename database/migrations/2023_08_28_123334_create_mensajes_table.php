@@ -13,9 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('mensajes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+
+
+            $table->string('remitente');
+            $table->string('contenido');
+            $table->dateTime('fechaHora');
+
+            $table->unsignedBigInteger('chat_id');
+             $table->foreign('chat_id')
+             ->references('id')
+             ->on('chats');
+             
             $table->timestamps();
         });
     }
@@ -27,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('mensajes');
     }
 };

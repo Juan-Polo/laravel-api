@@ -13,11 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('degrees', function (Blueprint $table) {
+        Schema::create('degree_maestro', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('descripcion');
-            $table->string('nivel');
+
+            
+            $table->unsignedBigInteger('degree_id');
+            $table->foreign('degree_id')->references('id')->on('degrees');
+
+            $table->unsignedBigInteger('maestro_id');
+            $table->foreign('maestro_id')->references('id')->on('maestros');
+
             $table->timestamps();
         });
     }
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('degrees');
+        Schema::dropIfExists('degree_maestro');
     }
 };

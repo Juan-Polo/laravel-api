@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Role>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Maestro>
  */
-class RoleFactory extends Factory
+class MaestroFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +18,9 @@ class RoleFactory extends Factory
     public function definition()
     {
         return [
-            // 'name' =>$this->faker ->name(),
-            'name' =>$this->faker ->randomElement(['Maestro','Padre','Alumno']),
+            
+            'user_id'=>User::inRandomOrder()->first()
+
         ];
     }
 }

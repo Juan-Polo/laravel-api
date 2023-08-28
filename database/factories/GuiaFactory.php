@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Asignatura;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Role>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Guia>
  */
-class RoleFactory extends Factory
+class GuiaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +18,8 @@ class RoleFactory extends Factory
     public function definition()
     {
         return [
-            // 'name' =>$this->faker ->name(),
-            'name' =>$this->faker ->randomElement(['Maestro','Padre','Alumno']),
+            'guia_url' =>$this->faker ->url(),
+            'asignatura_id'=>Asignatura::inRandomOrder()->first()
         ];
     }
 }

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Role>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Degree>
  */
-class RoleFactory extends Factory
+class DegreeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,9 @@ class RoleFactory extends Factory
     public function definition()
     {
         return [
-            // 'name' =>$this->faker ->name(),
-            'name' =>$this->faker ->randomElement(['Maestro','Padre','Alumno']),
+            'nombre' =>$this->faker ->name(),
+            'jornada' =>$this->faker ->name(),
+            'numeroAlumnos' =>$this->faker ->randomDigit(),
         ];
     }
 }

@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('evidence', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('Archivo adjunto');
-
-
-            $table->unsignedBigInteger('actividad_id');
-            $table->foreign('actividad_id')->references('id')->on('activities')->onDelete('cascade');
+            $table->enum('name',['Maestro','Padre','Alumno']);
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evidence');
+        Schema::dropIfExists('roles');
     }
 };

@@ -13,17 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('degree_user', function (Blueprint $table) {
+        Schema::create('activities', function (Blueprint $table) {
             $table->id();
+            $table->string('actividad_url');
+            $table->string('titulo');
+            $table->string('descripcion');
+            $table->dateTime('fechaInicio');
+            $table->dateTime('fechaFin');
             
-         
-            $table->unsignedBigInteger('grado_id');
-            $table->foreign('grado_id')->references('id')->on('degrees')->onDelete('cascade');
 
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('asignatura_id');
+            $table->foreign('asignatura_id')->references('id')->on('asignaturas');
 
-
+          
 
 
             $table->timestamps();
@@ -37,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('degree_user');
+        Schema::dropIfExists('activities');
     }
 };

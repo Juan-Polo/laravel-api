@@ -13,19 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('activities', function (Blueprint $table) {
+        Schema::create('evidencias', function (Blueprint $table) {
             $table->id();
-            $table->string('Titulo');
-            $table->string('Descripcion');
-            $table->date('fecha de inicio');
-            $table->date('fecha de entrega');
-            
+            $table->string('evidencia_url');
+            $table->dateTime('fechaSubida');
 
-            $table->unsignedBigInteger('grado_id');
-            $table->foreign('grado_id')->references('id')->on('degrees')->onDelete('cascade');
 
-          
-
+            $table->unsignedBigInteger('activity_id');
+            $table->foreign('activity_id')->references('id')->on('activities');
 
             $table->timestamps();
         });
@@ -38,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('evidencias');
     }
 };

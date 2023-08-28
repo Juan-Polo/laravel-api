@@ -3,8 +3,22 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Activity;
+use App\Models\Alumno;
+use App\Models\Asignatura;
+use App\Models\Chat;
+use App\Models\Degree;
+use App\Models\Evidencia;
+use App\Models\Guia;
+use App\Models\Image;
+use App\Models\Maestro;
+use App\Models\Mensaje;
+use App\Models\Notification;
+use App\Models\Padre;
 use App\Models\Role;
 use App\Models\User;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,5 +40,17 @@ class DatabaseSeeder extends Seeder
         
         Role::factory(3)->create();
         User::factory(50)->create();
+        Image::factory(50)->create();
+        Degree::factory(20)->create();
+        Notification::factory(50)->create();
+        Maestro::factory(10)->create();
+        Padre::factory(20)->create();
+        Alumno::factory(20)->create();
+        Chat::factory(20)->create();
+        Mensaje::factory(20)->create();
+        Asignatura::factory(8)->create();
+        Guia::factory(20)->create();
+        Activity::factory(10)->create();
+        Evidencia::factory(10)->create();
     }
 }

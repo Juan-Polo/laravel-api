@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('notifications', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('destinario');
-            $table->text('mensaje');
-            $table->DATETIME ('fecha y hora');
+            $table->string('image_url');
 
-$table->unsignedBigInteger('user_id')->unique();
-           
+
+            $table->unsignedBigInteger('user_id')->constrained();
              $table->foreign('user_id')
              ->references('id')
              ->on('users');
@@ -36,6 +34,6 @@ $table->unsignedBigInteger('user_id')->unique();
      */
     public function down()
     {
-        Schema::dropIfExists('notifications');
+        Schema::dropIfExists('images');
     }
 };

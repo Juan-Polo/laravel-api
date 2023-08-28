@@ -15,10 +15,25 @@ class User extends Model
 
       public function notifications()
     {
-        return $this->hasMany('App\Models\Notification');
+        return $this->belongsToMany('App\Models\Notification');
     }
 
-    public function degrees(){
+    public function degree(){
         return $this->belongsToMany(Degree::class, 'degree_user');
     }
+
+
+    public function image() {
+        return $this->hasOne('App\Models\Image');
+      }
+
+      public function maestro() {
+        return $this->hasOne('App\Models\Maestro');
+      }
+      public function padre() {
+        return $this->hasOne('App\Models\Padre');
+      }
+      public function Alumno() {
+        return $this->hasOne('App\Models\Alumno');
+      }
 }
