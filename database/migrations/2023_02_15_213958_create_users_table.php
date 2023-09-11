@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre');
-            $table->string('Apellidos');
-            $table->string('Correo Electronico');
-            $table->string('Contraseña');
+            $table->string('nombre');
+            $table->string('apellidos');
+            $table->string('gmail');
+            $table->string('password');
             // $table->foreignId('role_id')->constrained();
             // $table->unsignedBigInteger('role_id')->unique();
-           $table->unsignedBigInteger('role_id')->constrained();
-             $table->foreign('role_id')
-             ->references('id')
-             ->on('roles');
+            $table->unsignedBigInteger('role_id')->constrained();
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('roles');
 
             $table->timestamps();
         });

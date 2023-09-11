@@ -7,23 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Degree extends Model
 {
-    use HasFactory;
-    public function maestros() {
-        return $this->belongsToMany('App\Models\Degree');
-      }
+  use HasFactory;
+  public function maestros()
+  {
+    return $this->belongsToMany('App\Models\Maestro');
+  }
 
 
-    public function activity()
-    {
-        return $this->hasMany('App\Models\Activity');
-    }
+  public function activity()
+  {
+    return $this->hasMany('App\Models\Activity');
+  }
 
 
-    public function alumno() {
-        return $this->hasMany('App\Models\Alumno');
-      }
+  public function alumno()
+  {
+    return $this->hasMany('App\Models\Alumno');
+  }
 
-      public function chat() {
-        return $this->hasOne('App\Models\Chat');
-      }
+  public function chat()
+  {
+    return $this->hasOne('App\Models\Chat');
+  }
 }

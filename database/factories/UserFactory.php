@@ -25,15 +25,13 @@ class UserFactory extends Factory
         //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         //     'remember_token' => Str::random(10),
         // ];
-return[
-    'Nombre'=>$this->faker->name(),
-    'Apellidos'=>$this->faker->lastName(),
-    'Correo Electronico'=>$this->faker->email(),
-    'Contraseña'=>$this->faker->password(),
-    'role_id'=>Role::inRandomOrder()->first()
-];
-
-
+        return [
+            'nombre' => $this->faker->name(),
+            'apellidos' => $this->faker->lastName(),
+            'gmail' => $this->faker->email(),
+            'password' => $this->faker->password(),
+            'role_id' => Role::inRandomOrder()->first()
+        ];
     }
 
     /**

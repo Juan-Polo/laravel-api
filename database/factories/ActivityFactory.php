@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Asignatura;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Validation\Rules\Unique;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Activity>
@@ -18,12 +19,12 @@ class ActivityFactory extends Factory
     public function definition()
     {
         return [
-            'actividad_url' =>$this->faker ->url(),
-            'titulo' =>$this->faker ->name(),
-            'descripcion' =>$this->faker ->text(),
-            'fechaInicio' =>$this->faker ->dateTime(),
-            'fechaFin' =>$this->faker ->dateTime(),
-            'asignatura_id'=>Asignatura::inRandomOrder()->first()
+            'actividad_url' => $this->faker->url(),
+            'titulo' => $this->faker->name(),
+            'descripcion' => $this->faker->text(),
+            'fechaInicio' => $this->faker->dateTime(),
+            'fechaFin' => $this->faker->dateTime(),
+            'asignatura_id' => Asignatura::all()->random()->id
         ];
     }
 }

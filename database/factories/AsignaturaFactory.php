@@ -22,6 +22,7 @@ class AsignaturaFactory extends Factory
             'name' =>$this->faker ->name(),
             'maestro_id'=>Maestro::inRandomOrder()->first(),
             'degree_id'=>Degree::inRandomOrder()->first()
+            
         ];
     }
 }

@@ -13,6 +13,6 @@ class Padre extends Model
       }
 
       public function alumno() {
-        return $this->hasOne('App\Models\Alumno');
+        return $this->hasMany('App\Models\Alumno');
       }
 }

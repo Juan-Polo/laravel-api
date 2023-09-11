@@ -18,11 +18,11 @@ class MensajeFactory extends Factory
     public function definition()
     {
         return [
-            
-            'remitente' =>$this->faker ->name(),
-            'contenido' =>$this->faker ->paragraph(),
-            'fechaHora' =>$this->faker ->dateTime(),
-            'chat_id'=>Chat::inRandomOrder()->first()
+
+            'remitente' => $this->faker->name(),
+            'contenido' => $this->faker->text(),
+            'fechaHora' => $this->faker->dateTime(),
+            'chat_id' => Chat::inRandomOrder()->first()
 
         ];
     }

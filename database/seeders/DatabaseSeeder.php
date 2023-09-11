@@ -38,7 +38,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         
-        Role::factory(3)->create();
+        // Role::factory(3)->create();
+        $this->call(RoleSeeder::class);
         User::factory(50)->create();
         Image::factory(50)->create();
         Degree::factory(20)->create();
