@@ -20,21 +20,19 @@
         <br>
         <label>Contraseña <br> <input type="password" name="password"> </label>
         <br>
-        <label>Role <br>
+        <label>Role</label> <br>
 
+            
 
             <select name="role_id">
-
-                <option>1</option>
-
-                <option>2</option>
-
-                <option>3</option>
-
+                @foreach ($role as $role)
+                    <option value=" {{$role['id']}} "> {{$role['name']}} </option>
+                @endforeach
+                
             </select>
 
 
-        </label>
+        
         <br><br>
 
         <button type="submit"> Registrate </button>

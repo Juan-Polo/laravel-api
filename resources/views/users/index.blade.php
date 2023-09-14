@@ -21,5 +21,7 @@
 
     </ul>
 
+    
     {{ $users->links() }}
+
 @endsection

@@ -57,4 +57,13 @@ class DegreeController extends Controller
         $degree->save();
         return redirect()->route('degrees.show', $degree);
     }
+
+
+    public function destroy(Degree $degree){
+
+        $degree->delete();
+        return redirect()->route('degrees.index');
+        
+        
+            }
 }

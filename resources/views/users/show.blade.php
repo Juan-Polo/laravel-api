@@ -19,4 +19,18 @@
     <p> <strong>Contraseña: </strong> {{ $user->password }} </p>
     <p> <strong>Role: </strong> {{ $user->role_id }} </p>
 
+
+
+    <form  action="{{route('users.destroy', $user)}}"  method="POST"> 
+
+        @csrf
+        @method('delete')
+        
+        
+        
+        <button  type="submit">Eliminar</button>
+        
+        
+            </form>
+
 @endsection

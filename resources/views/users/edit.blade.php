@@ -24,21 +24,16 @@
         <br>
         <label>Contraseña <br> <input type="password" name="password" value="{{ $user->password }}"> </label>
         <br>
-        <label>Role <br>
+        <label>Role</label> <br>
 
-            <input type="text" value="{{ $user->role_id }}">
-            <select name="role_id" value="{{ $user->role_id }}">
+            
 
-                <option>1</option>
-
-                <option>2</option>
-
-                <option>3</option>
-
+            <select name="role_id">
+                @foreach ($role as $role)
+                    <option value=" {{$role['id']}} "> {{$role['name']}} </option>
+                @endforeach
+                
             </select>
-
-
-        </label>
         <br><br>
 
         <button type="submit"> Actualizar formulario </button>
