@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DegreeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MensajeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -40,7 +41,7 @@ Route::resource('degrees', DegreeController::class);
 
 
 //MENSAJES
-Route::resource('degrees', DegreeController::class);
+Route::resource('mensajes', MensajeController::class);
 
 
 
