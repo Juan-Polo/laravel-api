@@ -16,7 +16,6 @@
     <p> <strong>Remitente:</strong>{{ $mensaje->remitente }}</p>
     <p> <strong>Contenido:</strong>{{ $mensaje->contenido }}</p>
     <p> <strong>fecha y Hora:</strong>{{ $mensaje->fechaHora }}</p>
-    <p> <strong>Password:</strong>{{ $mensaje->password }}</p>
     <p> <strong>Chat </strong> {{ $mensaje->chat_id }} </p>
 
 
