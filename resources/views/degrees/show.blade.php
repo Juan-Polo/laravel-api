@@ -8,7 +8,7 @@
     <h1>Grado</h1>
     <a href="{{ route('degrees.index') }}">Volver a la lista</a><br>
     <a href="{{ route('degrees.edit', $degree) }}">Editar grado</a><br>
-    
+
 
     <br>
 
@@ -18,12 +18,12 @@
     <p> <strong>Numero de alumnos: </strong> {{ $degree->numeroAlumnos }} </p>
 
 
-    <form  action="{{route('degrees.destroy',$degree)}}"  method="POST"> 
-@method('delete')
-@csrf
+    <form action="{{ route('degrees.destroy', $degree) }}" method="POST">
+        @method('delete')
+        @csrf
 
 
-<button type="submit">Eliminar</button>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
 
 
     </form>

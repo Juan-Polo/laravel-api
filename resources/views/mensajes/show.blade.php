@@ -8,7 +8,7 @@
     <h1>Mensaje</h1>
     <a href="{{ route('mensajes.index') }}">Volver a la lista</a><br>
     <a href="{{ route('mensajes.edit', $mensaje) }}">Editar mensaje</a><br>
-    
+
 
     <br>
 
@@ -20,12 +20,12 @@
     <p> <strong>Chat </strong> {{ $mensaje->chat_id }} </p>
 
 
-    <form  action="{{route('mensajes.destroy',$mensaje)}}"  method="POST"> 
-@method('delete')
-@csrf
+    <form action="{{ route('mensajes.destroy', $mensaje) }}" method="POST">
+        @method('delete')
+        @csrf
 
 
-<button type="submit">Eliminar</button>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
 
 
     </form>

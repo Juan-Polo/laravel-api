@@ -6,7 +6,7 @@
 @section('content')
 
     <h1>inicio registro</h1>
-    <a href="{{ route('users.create') }}">Crear usuario</a>
+    <a href=" {{ route('users.create') }}">Crear usuario</a>
 
     <ul>
 
@@ -21,7 +21,7 @@
 
     </ul>
 
-    
+
     {{ $users->links() }}
 
 @endsection

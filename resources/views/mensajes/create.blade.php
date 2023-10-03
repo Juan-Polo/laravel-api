@@ -1,4 +1,3 @@
-
 @extends('layouts.plantilla')
 
 @section('title', 'Mensajes create')
@@ -18,25 +17,25 @@
         <label>Contenido: <br> <input type="text" name="contenido"> </label>
         <br>
         <label>Fecha y Hora <br> <input type="date" name="fechaHora"> </label>
-        
-        
+
+
         <br>
         <label>chat</label> <br>
 
-            
-
-            <select name="chat_id">
-                @foreach ($chat as $chat)
-                    <option value=" {{$chat['id']}} "> {{$chat['name']}} </option>
-                @endforeach
-                
-            </select>
 
 
-        
+        <select name="chat_id">
+            @foreach ($chat as $chat)
+                <option value=" {{ $chat['id'] }} "> {{ $chat['name'] }} </option>
+            @endforeach
+
+        </select>
+
+
+
         <br><br>
 
-        <button type="submit"> Registrate </button>
+        <button type="submit" class="btn btn-primary"> Registrate </button>
 
 
     </form>

@@ -21,16 +21,16 @@
 
 
 
-    <form  action="{{route('users.destroy', $user)}}"  method="POST"> 
+    <form action="{{ route('users.destroy', $user) }}" method="POST">
 
         @csrf
         @method('delete')
-        
-        
-        
-        <button  type="submit">Eliminar</button>
-        
-        
-            </form>
+
+
+
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+
+
+    </form>
 
 @endsection

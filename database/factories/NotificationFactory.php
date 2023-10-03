@@ -17,10 +17,10 @@ class NotificationFactory extends Factory
     public function definition()
     {
         return [
-            
-            'mensaje' =>$this->faker ->text(),
-            'fecha y hora' =>$this->faker ->dateTime(),
-            
+
+            'mensaje' => $this->faker->text(),
+            'fechaHora' => $this->faker->dateTime(),
+
         ];
     }
 }

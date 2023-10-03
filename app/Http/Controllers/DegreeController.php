@@ -59,11 +59,10 @@ class DegreeController extends Controller
     }
 
 
-    public function destroy(Degree $degree){
+    public function destroy(Degree $degree)
+    {
 
         $degree->delete();
         return redirect()->route('degrees.index');
-        
-        
-            }
+    }
 }

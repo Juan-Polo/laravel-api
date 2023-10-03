@@ -26,17 +26,17 @@
         <br>
         <label>Role</label> <br>
 
-            
 
-            <select name="role_id">
-                @foreach ($role as $role)
-                    <option value=" {{$role['id']}} "> {{$role['name']}} </option>
-                @endforeach
-                
-            </select>
+
+        <select name="role_id">
+            @foreach ($role as $role)
+                <option value=" {{ $role['id'] }} "> {{ $role['name'] }} </option>
+            @endforeach
+
+        </select>
         <br><br>
 
-        <button type="submit"> Actualizar formulario </button>
+        <button type="submit" class="btn btn-primary"> Actualizar formulario </button>
 
 
     </form>

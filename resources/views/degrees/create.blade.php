@@ -20,7 +20,7 @@
 
         <br><br>
 
-        <button type="submit"> Crear </button>
+        <button type="submit" class="btn btn-primary"> Crear </button>
 
 
     </form>
