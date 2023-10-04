@@ -52,6 +52,8 @@ Route::resource('notifications', NotificationController::class);
 
 //CHATS
 Route::resource('chats', ChatController::class);
+
+
 // Route::controller(UserController::class)->group(function () {
 
 //     Route::get('users', 'index')->name('users.index');
