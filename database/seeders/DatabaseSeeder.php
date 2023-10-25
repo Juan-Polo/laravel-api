@@ -40,9 +40,9 @@ class DatabaseSeeder extends Seeder
         
         // Role::factory(3)->create();
         $this->call(RoleSeeder::class);
-        User::factory(1000)->create();
+        User::factory(100)->create();
         Image::factory(50)->create();
-        Degree::factory(20)->create();
+        Degree::factory(2000)->create();
         Notification::factory(50)->create();
         Maestro::factory(10)->create();
         Padre::factory(20)->create();

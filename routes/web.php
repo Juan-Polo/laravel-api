@@ -33,7 +33,7 @@ Route::get('/', function () {
 // Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
 //Ruta limpia
-Route::resource('users', UserController::class);
+ Route::resource('users', UserController::class);
 
 
 

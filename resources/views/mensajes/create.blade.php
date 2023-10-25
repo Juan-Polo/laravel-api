@@ -26,7 +26,7 @@
 
         <select name="chat_id">
             @foreach ($chat as $chat)
-                <option value=" {{ $chat['id'] }} "> {{ $chat['name'] }} </option>
+                <option value=" {{ $chat['id'] }} "> {{ $chat['name'] }}   </option>
             @endforeach
 
         </select>

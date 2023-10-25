@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body  style="">
     {{-- header --}}
 
 
@@ -68,9 +68,10 @@
     {{-- footer --}}
 
 
+    
 
 
-
+      
 
     {{-- script --}}
 
