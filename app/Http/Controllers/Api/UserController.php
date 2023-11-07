@@ -57,10 +57,11 @@ class UserController extends Controller
     }
 
  
-    public function show(User $user)
+    public function show($id)
     {
 
-        return view('users.show', compact('user'));
+        $user = User::included()->findOrFail($id);
+         return $user;
     }
 
 

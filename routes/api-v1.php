@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\ChatController;
+use App\Http\Controllers\Api\MensajeController;
 use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -18,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('users', UserController::class);
 Route::resource('notifications', NotificationController::class);
+Route::resource('chats', ChatController::class);
+Route::resource('mensajes', MensajeController::class);
 
 
 
