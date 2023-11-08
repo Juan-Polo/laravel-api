@@ -22,10 +22,36 @@ class Notification extends Model
     protected $fillable = [
         'mensaje',
         'fechaHora',
-        
+
 
     ];
-    protected $allowIncluded=['mensaje','fechaHora'];
+
+
+
+    protected $allowIncluded = ['users', '',];
+
+
+    public function scopeIncluded(Builder $query)
+    {
+
+        // if(empty($this->allowIncluded)||empty(request('included'))){
+        //     return;
+        // }
+
+        $relations = explode(',', request('included')); //['posts','relation2']
+
+        $allowIncluded = collect($this->allowIncluded); //colocamos en una colecion lo que tiene $allowIncluded en este caso = ['posts','posts.user']
+
+        foreach ($relations as $key => $relationship) { //recorremos el array de relaciones
+
+            if (!$allowIncluded->contains($relationship)) {
+                unset($relations[$key]);
+            }
+        }
+        $query->with($relations); //se ejecuta el query con lo que tiene $relations en ultimas es el valor en la url de included
+
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -49,10 +75,11 @@ class Notification extends Model
 
 
 
-  
+
     use HasFactory;
 
-    public function users() {
+    public function users()
+    {
         return $this->belongsToMany('App\Models\User');
-      }
+    }
 }

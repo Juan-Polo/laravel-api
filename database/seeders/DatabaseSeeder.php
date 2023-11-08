@@ -37,16 +37,16 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        
+
         // Role::factory(3)->create();
         $this->call(RoleSeeder::class);
         User::factory(100)->create();
         Image::factory(50)->create();
-        Degree::factory(2000)->create();
+        Degree::factory(5)->create();
         Notification::factory(50)->create();
         Maestro::factory(10)->create();
         Padre::factory(20)->create();
-        Alumno::factory(20)->create();
+        Alumno::factory(50)->create();
         Chat::factory(20)->create();
         Mensaje::factory(20)->create();
         Asignatura::factory(8)->create();

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -23,8 +23,8 @@ class NotificationController extends Controller
         //  $notifications = Notification::all();
         //  return view('notifications.index', compact('notifications'));
 
-     $notifications=Notification::all();
-         return $notifications;
+        $notifications = Notification::all();
+        return $notifications;
     }
 
 
@@ -53,10 +53,10 @@ class NotificationController extends Controller
         $request->validate([
             'mensaje' => 'required|max:255',
             'fechaHora' => 'required|max:255',
-            
+
         ]);
 
-        $notification= Notification::create($request->all());
+        $notification = Notification::create($request->all());
 
         return $notification;
     }
@@ -71,9 +71,9 @@ class NotificationController extends Controller
 
     public function show($id)
     {
-        //$notification = Notification::with(['posts.user'])->findOrFail($id);
-        
-        $notification = Notification::included()->findOrFail($id);
+
+
+        $notification = Notification::findOrFail($id);
         return $notification;
 
         // return 'holaa';
@@ -85,7 +85,7 @@ class NotificationController extends Controller
         $request->validate([
             'mensaje' => 'required|max:255',
             'fechaHora' => 'required|max:255',
-            
+
         ]);
 
         $notification->update($request->all());
@@ -99,5 +99,4 @@ class NotificationController extends Controller
         $notification->delete();
         return $notification;
     }
-
 }

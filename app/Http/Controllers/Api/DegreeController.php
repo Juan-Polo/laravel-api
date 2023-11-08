@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Role;
-use App\Models\User;
+use App\Models\Degree;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class DegreeController extends Controller
 {
 
-
-
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
 
@@ -20,18 +21,12 @@ class UserController extends Controller
         //  $users = User::all();
         // return view('users.index', compact('users'));
 
-        $users = User::all();
-        return $users;
+        $degrees = Degree::all();
+        return $degrees;
     }
 
 
-    public function create()
-    {
-        // return view('users.create');
 
-        $roles = Role::all();
-        return view('users.create', ['role' => $roles]);
-    }
 
     public function store(Request $request)
     {
@@ -46,35 +41,36 @@ class UserController extends Controller
 
         $request->validate([
             'nombre' => 'required|max:255',
-            'apellidos' => 'required|max:255',
-            'gmail' => 'required|max:255',
-            'password' => 'required|max:255',
-            'role_id' => 'required|max:255',
+            'jornada' => 'required|max:255',
+            'numeroAlumnos' => 'required|max:255'
+
         ]);
 
-        $user = User::create($request->all());
+        $degree = Degree::create($request->all());
 
-        return $user;
+        return $degree;
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Mensaje  $notification
+     * @return \Illuminate\Http\Response
+     */
 
 
     public function show($id)
     {
 
-        $user = User::included()->findOrFail($id);
-        return $user;
+        $degree = Degree::included()->findOrFail($id);
+        return $degree;
     }
 
 
-    public function edit(User $user)
-    {
-
-        $roles = Role::all();
-        return view('users.edit', compact('user'), ['role' => $roles]);
-    }
 
 
-    public function update(Request $request, User $user)
+
+    public function update(Request $request, Degree $degree)
     {
         // $user->nombre = $request->nombre;
         // $user->apellidos = $request->apellidos;
@@ -87,24 +83,22 @@ class UserController extends Controller
 
         $request->validate([
             'nombre' => 'required|max:255',
-            'apellidos' => 'required|max:255',
-            'gmail' => 'required|max:255',
-            'password' => 'required|max:255',
-            'role_id' => 'required|max:255',
+            'jornada' => 'required|max:255',
+            'numeroAlumnos' => 'required|max:255',
 
         ]);
 
-        $user->update($request->all());
+        $degree->update($request->all());
 
-        return $user;
+        return $degree;
     }
 
 
 
-    public function destroy(User $user)
+    public function destroy(Degree $degree)
     {
 
-        $user->delete();
-        return redirect()->route('users.index');
+        $degree->delete();
+        return $degree;
     }
 }
