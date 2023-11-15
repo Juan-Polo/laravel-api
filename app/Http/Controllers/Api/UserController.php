@@ -20,7 +20,7 @@ class UserController extends Controller
         //  $users = User::all();
         // return view('users.index', compact('users'));
 
-        $users = User::all();
+        $users = User::included()->filter()->sort()->get();
         return $users;
     }
 
@@ -58,7 +58,7 @@ class UserController extends Controller
     }
 
 
-    public function show($id)
+    public function show(User $id)
     {
 
         $user = User::included()->findOrFail($id);
@@ -76,13 +76,7 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        // $user->nombre = $request->nombre;
-        // $user->apellidos = $request->apellidos;
-        // $user->gmail = $request->gmail;
-        // $user->password = $request->password;
-        // $user->role_id = $request->role_id;
-        // $user->save();
-        // return redirect()->route('users.show', $user);
+        
 
 
         $request->validate([

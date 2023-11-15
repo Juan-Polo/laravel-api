@@ -19,16 +19,10 @@ class Notification extends Model
      *
      * @var string[]
      */
-    protected $fillable = [
-        'mensaje',
-        'fechaHora',
-
-
-    ];
-
-
-
-    protected $allowIncluded = ['users', '',];
+    protected $fillable = [ 'mensaje','fechaHora',];
+    protected $allowIncluded = ['users', ];
+    protected $allowFilter=['id','mensaje','fechaHora'];
+    protected $allowSort=['id','mensaje','fechaHora'];
 
 
     public function scopeIncluded(Builder $query)
@@ -49,6 +43,63 @@ class Notification extends Model
             }
         }
         $query->with($relations); //se ejecuta el query con lo que tiene $relations en ultimas es el valor en la url de included
+
+    }
+
+////////////////////////////////////////////////////////
+
+    public function scopeFilter(Builder $query){
+
+    
+        if(empty($this->allowFilter)||empty(request('filter'))){
+            return;
+        }
+        
+        $filters =request('filter');
+        $allowFilter= collect($this->allowFilter);
+      
+        foreach($filters as $filter => $value){
+      
+             if($allowFilter->contains($filter))
+             {
+                $query->where($filter,'LIKE', '%'.$value.'%');
+            }
+      
+        }
+         //http://api.our.com/v1/users?filter[nombre]=S
+      
+        }
+
+
+
+
+        //////////////////////////////////////////////////////////////////////////////////
+
+
+
+  public function scopeSort(Builder $query){
+
+    
+    if(empty($this->allowSort)||empty(request('sort'))){
+        return;
+    }
+    
+    
+    $sortFields = explode(',', request('sort'));
+    $allowSort= collect($this->allowSort);
+
+    foreach($sortFields as $sortField ){
+
+         if($allowSort->contains($sortField)){
+
+            $query->orderBy($sortField,'asc');
+     
+        }
+
+    }
+
+    
+    
 
     }
 

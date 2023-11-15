@@ -21,16 +21,10 @@ class Mensaje extends Model
      *
      * @var string[]
      */
-    protected $fillable = [
-        'remitente',
-        'contenido',
-        'fechaHora',
-        'chat_id',
-
-
-    ];
-
+    protected $fillable = ['remitente','contenido','fechaHora','chat_id',];
     protected $allowIncluded = ['chat', 'chat.degree',];
+    protected $allowFilter=['id','remitente','contenido','fechaHora','chat_id',];
+    protected $allowSort=['id','remitente','contenido','fechaHora','chat_id',];
 
 
     public function scopeIncluded(Builder $query)
@@ -51,6 +45,69 @@ class Mensaje extends Model
             }
         }
         $query->with($relations); //se ejecuta el query con lo que tiene $relations en ultimas es el valor en la url de included
+
+    }
+
+
+    //http://api.our.com/v1/mensajes/10?included=chat,chat.degree
+
+    ////////////////////////////////////////////////////////
+
+    public function scopeFilter(Builder $query){
+
+    
+        if(empty($this->allowFilter)||empty(request('filter'))){
+            return;
+        }
+        
+        $filters =request('filter');
+        $allowFilter= collect($this->allowFilter);
+      
+        foreach($filters as $filter => $value){
+      
+             if($allowFilter->contains($filter))
+             {
+                $query->where($filter,'LIKE', '%'.$value.'%');
+            }
+      
+        }
+         //http://api.our.com/v1/mensajes?filter[chat_id]=13
+        // http://api.our.com/v1/mensajes?filter[contenido]=Tem
+        //http://api.our.com/v1/mensajes?filter[remitente]=Dr.
+      
+        }
+
+
+
+
+        //////////////////////////////////////////////////////////////////////////////////
+
+
+
+  public function scopeSort(Builder $query){
+
+    
+    if(empty($this->allowSort)||empty(request('sort'))){
+        return;
+    }
+    
+    
+    $sortFields = explode(',', request('sort'));
+    $allowSort= collect($this->allowSort);
+
+    foreach($sortFields as $sortField ){
+
+         if($allowSort->contains($sortField)){
+
+            $query->orderBy($sortField,'asc');
+     
+        }
+
+    }
+
+    
+    //http://api.our.com/v1/mensajes?sort=remitente
+    
 
     }
 

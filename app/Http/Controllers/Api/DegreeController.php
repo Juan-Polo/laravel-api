@@ -17,11 +17,9 @@ class DegreeController extends Controller
     public function index()
     {
 
-        // $users = User::Orderby('id', 'desc')->paginate();
-        //  $users = User::all();
-        // return view('users.index', compact('users'));
+        
 
-        $degrees = Degree::all();
+        $degrees = Degree::included()->filter()->sort()->get();
         return $degrees;
     }
 
@@ -30,14 +28,7 @@ class DegreeController extends Controller
 
     public function store(Request $request)
     {
-        // $user = new User();
-        // $user->nombre = $request->nombre;
-        // $user->apellidos = $request->apellidos;
-        // $user->gmail = $request->gmail;
-        // $user->password = $request->password;
-        // $user->role_id = $request->role_id;
-        // $user->save();
-        // return redirect()->route('users.show', $user);
+        
 
         $request->validate([
             'nombre' => 'required|max:255',
@@ -72,13 +63,7 @@ class DegreeController extends Controller
 
     public function update(Request $request, Degree $degree)
     {
-        // $user->nombre = $request->nombre;
-        // $user->apellidos = $request->apellidos;
-        // $user->gmail = $request->gmail;
-        // $user->password = $request->password;
-        // $user->role_id = $request->role_id;
-        // $user->save();
-        // return redirect()->route('users.show', $user);
+      
 
 
         $request->validate([

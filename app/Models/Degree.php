@@ -45,6 +45,63 @@ class Degree extends Model
 
   }
 
+  ////////////////////////////////////////////////////////
+
+  public function scopeFilter(Builder $query){
+
+    
+    if(empty($this->allowFilter)||empty(request('filter'))){
+        return;
+    }
+    
+    $filters =request('filter');
+    $allowFilter= collect($this->allowFilter);
+  
+    foreach($filters as $filter => $value){
+  
+         if($allowFilter->contains($filter))
+         {
+            $query->where($filter,'LIKE', '%'.$value.'%');
+        }
+  
+    }
+     //http://api.our.com/v1/users?filter[nombre]=S
+  
+    }
+
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+
+
+public function scopeSort(Builder $query){
+
+
+if(empty($this->allowSort)||empty(request('sort'))){
+    return;
+}
+
+
+$sortFields = explode(',', request('sort'));
+$allowSort= collect($this->allowSort);
+
+foreach($sortFields as $sortField ){
+
+     if($allowSort->contains($sortField)){
+
+        $query->orderBy($sortField,'asc');
+ 
+    }
+
+}
+
+
+
+
+}
+
 
   /**
    * The attributes that should be hidden for serialization.

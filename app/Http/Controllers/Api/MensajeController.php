@@ -20,36 +20,20 @@ class MensajeController extends Controller
      public function index()
      {
  
-         //  $notifications = Notification::Orderby('id', 'desc')->paginate();
-         //  $notifications = Notification::all();
-         //  return view('notifications.index', compact('notifications'));
+    
  
-      $mensajes=Mensaje::all();
+      $mensajes=Mensaje::included()->filter()->sort()->get();
           return $mensajes;
      }
  
  
  
-     public function create()
-     {
-         // return view('users.create');
- 
-         // $roles = Role::all();
-         //  return view('users.create', ['role'=>$roles]);
-     }
- 
+     
  
  
      public function store(Request $request)
      {
-         // $user = new User();
-         // $user->nombre = $request->nombre;
-         // $user->apellidos = $request->apellidos;
-         // $user->gmail = $request->gmail;
-         // $user->password = $request->password;
-         // $user->role_id = $request->role_id;
-         // $user->save();
-         // return redirect()->route('users.show', $user);
+         
  
          $request->validate([
             'remitente' => 'required|max:255',

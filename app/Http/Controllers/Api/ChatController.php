@@ -18,22 +18,10 @@ class ChatController extends Controller
      public function index()
      {
  
-         //  $notifications = Notification::Orderby('id', 'desc')->paginate();
-         //  $notifications = Notification::all();
-         //  return view('notifications.index', compact('notifications'));
+
  
-      $chats=Chat::all();
+      $chats=Chat::included()->filter()->sort()->get();
           return $chats;
-     }
- 
- 
- 
-     public function create()
-     {
-         // return view('users.create');
- 
-         // $roles = Role::all();
-         //  return view('users.create', ['role'=>$roles]);
      }
  
  
