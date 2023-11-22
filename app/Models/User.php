@@ -18,10 +18,10 @@ class User extends Authenticatable
    *
    * @var string[]
    */
-  protected $fillable = ['nombre', 'apellidos', 'gmail', 'password', 'role_id',];
-  protected $allowIncluded = ['role', 'image', 'maestro', 'padre', 'alumno', 'alumno.degree', 'alumno.padre', 'maestro.degree', 'alumno.padre.user'];
-  protected $allowFilter=['id','nombre','role_id'];
-  protected $allowSort=['id','nombre','role_id'];
+  protected $fillable = ['nombre', 'apellidos', 'gmail', 'password', 'role_id'];
+  protected $allowIncluded = ['role', 'image', 'maestro', 'padre', 'alumno', 'alumno.degree', 'alumno.padre', 'maestro.degree', 'alumno.padre.user',];
+  protected $allowFilter = ['id', 'nombre', 'role_id'];
+  protected $allowSort = ['id', 'nombre', 'role_id'];
 
   public function scopeIncluded(Builder $query)
   {
@@ -44,61 +44,55 @@ class User extends Authenticatable
 
   }
 
-//////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////
 
-public function scopeFilter(Builder $query){
+  public function scopeFilter(Builder $query)
+  {
 
-    
-  if(empty($this->allowFilter)||empty(request('filter'))){
+
+    if (empty($this->allowFilter) || empty(request('filter'))) {
       return;
-  }
-  
-  $filters =request('filter');
-  $allowFilter= collect($this->allowFilter);
+    }
 
-  foreach($filters as $filter => $value){
+    $filters = request('filter');
+    $allowFilter = collect($this->allowFilter);
 
-       if($allowFilter->contains($filter))
-       {
-          $query->where($filter,'LIKE', '%'.$value.'%');
+    foreach ($filters as $filter => $value) {
+
+      if ($allowFilter->contains($filter)) {
+        $query->where($filter, 'LIKE', '%' . $value . '%');
       }
-
-  }
-   //http://api.our.com/v1/users?filter[nombre]=S
+    }
+    //http://api.our.com/v1/users?filter[nombre]=S
 
   }
   //////////////////////////////////////////////////////////////////////////////////
 
 
 
-  public function scopeSort(Builder $query){
+  public function scopeSort(Builder $query)
+  {
 
-    
-    if(empty($this->allowSort)||empty(request('sort'))){
-        return;
+
+    if (empty($this->allowSort) || empty(request('sort'))) {
+      return;
     }
-    
-    
+
+
     $sortFields = explode(',', request('sort'));
-    $allowSort= collect($this->allowSort);
+    $allowSort = collect($this->allowSort);
 
-    foreach($sortFields as $sortField ){
+    foreach ($sortFields as $sortField) {
 
-         if($allowSort->contains($sortField)){
+      if ($allowSort->contains($sortField)) {
 
-            $query->orderBy($sortField,'asc');
-     
-        }
-
+        $query->orderBy($sortField, 'asc');
+      }
     }
-
-    
-    
-
-    }
+  }
 
 
-//http://api.our.com/v1/users?sort=nombre
+  //http://api.our.com/v1/users?sort=nombre
 
 
 

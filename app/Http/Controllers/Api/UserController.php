@@ -58,7 +58,7 @@ class UserController extends Controller
     }
 
 
-    public function show(User $id)
+    public function show($id)
     {
 
         $user = User::included()->findOrFail($id);
@@ -76,7 +76,7 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        
+
 
 
         $request->validate([

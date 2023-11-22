@@ -21,7 +21,9 @@ class Degree extends Model
    */
 
   protected $fillable = ['nombre', 'jornada', 'numeroAlumnos',];
-  protected $allowIncluded = ['', 'alumnos',  'chat'];
+  protected $allowIncluded = ['alumnos', 'asignatura', 'chat'];
+  protected $allowFilter = ['id', 'nombre', 'jornada', 'numeroAlumnos'];
+  protected $allowSort = ['id', 'nombre', 'jornada', 'numeroAlumnos'];
 
 
   public function scopeIncluded(Builder $query)
@@ -47,60 +49,54 @@ class Degree extends Model
 
   ////////////////////////////////////////////////////////
 
-  public function scopeFilter(Builder $query){
+  public function scopeFilter(Builder $query)
+  {
 
-    
-    if(empty($this->allowFilter)||empty(request('filter'))){
-        return;
-    }
-    
-    $filters =request('filter');
-    $allowFilter= collect($this->allowFilter);
-  
-    foreach($filters as $filter => $value){
-  
-         if($allowFilter->contains($filter))
-         {
-            $query->where($filter,'LIKE', '%'.$value.'%');
-        }
-  
-    }
-     //http://api.our.com/v1/users?filter[nombre]=S
-  
+
+    if (empty($this->allowFilter) || empty(request('filter'))) {
+      return;
     }
 
+    $filters = request('filter');
+    $allowFilter = collect($this->allowFilter);
+
+    foreach ($filters as $filter => $value) {
+
+      if ($allowFilter->contains($filter)) {
+        $query->where($filter, 'LIKE', '%' . $value . '%');
+      }
+    }
+    //http://localhost/laravel/public/v1/degrees?filter[numeroAlumnos]=8
+
+  }
 
 
 
-    //////////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////////
 
 
 
-public function scopeSort(Builder $query){
+  public function scopeSort(Builder $query)
+  {
 
 
-if(empty($this->allowSort)||empty(request('sort'))){
-    return;
-}
-
-
-$sortFields = explode(',', request('sort'));
-$allowSort= collect($this->allowSort);
-
-foreach($sortFields as $sortField ){
-
-     if($allowSort->contains($sortField)){
-
-        $query->orderBy($sortField,'asc');
- 
+    if (empty($this->allowSort) || empty(request('sort'))) {
+      return;
     }
 
-}
 
+    $sortFields = explode(',', request('sort'));
+    $allowSort = collect($this->allowSort);
 
+    foreach ($sortFields as $sortField) {
 
+      if ($allowSort->contains($sortField)) {
 
-}
+        $query->orderBy($sortField, 'asc');
+      }
+    }
+  }
 
 
   /**
@@ -135,7 +131,7 @@ foreach($sortFields as $sortField ){
 
   public function asignatura()
   {
-    return $this->hasMany('App\Models\Activity');
+    return $this->hasMany('App\Models\Asignatura');
   }
 
 
