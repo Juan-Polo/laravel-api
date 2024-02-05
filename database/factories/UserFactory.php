@@ -26,9 +26,9 @@ class UserFactory extends Factory
         //     'remember_token' => Str::random(10),
         // ];
         return [
-            'nombre' => $this->faker->name(),
-            'apellidos' => $this->faker->lastName(),
-            'gmail' => $this->faker->email(),
+            'name' => $this->faker->name(),
+            'lastname' => $this->faker->lastName(),
+            'email' => $this->faker->email(),
             'password' => $this->faker->password(),
             'role_id' => Role::inRandomOrder()->first()
         ];

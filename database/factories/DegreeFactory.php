@@ -17,9 +17,9 @@ class DegreeFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' =>$this->faker ->name(),
-            'jornada' =>$this->faker ->name(),
-            'numeroAlumnos' =>$this->faker ->randomDigit(),
+            'name' => $this->faker->name(),
+            'school_day' => $this->faker->name(),
+            'students' => $this->faker->randomDigit(),
         ];
     }
 }

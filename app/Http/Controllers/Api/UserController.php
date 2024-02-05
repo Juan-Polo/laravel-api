@@ -45,9 +45,9 @@ class UserController extends Controller
         // return redirect()->route('users.show', $user);
 
         $request->validate([
-            'nombre' => 'required|max:255',
-            'apellidos' => 'required|max:255',
-            'gmail' => 'required|max:255',
+            'name' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'email' => 'required|max:255',
             'password' => 'required|max:255',
             'role_id' => 'required|max:255',
         ]);
@@ -80,9 +80,9 @@ class UserController extends Controller
 
 
         $request->validate([
-            'nombre' => 'required|max:255',
-            'apellidos' => 'required|max:255',
-            'gmail' => 'required|max:255',
+            'name' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'email' => 'required|max:255',
             'password' => 'required|max:255',
             'role_id' => 'required|max:255',
 

@@ -18,10 +18,10 @@ class User extends Authenticatable
    *
    * @var string[]
    */
-  protected $fillable = ['nombre', 'apellidos', 'gmail', 'password', 'role_id'];
+  protected $fillable = ['name', 'lastname', 'email', 'password', 'role_id'];
   protected $allowIncluded = ['role', 'image', 'maestro', 'padre', 'alumno', 'alumno.degree', 'alumno.padre', 'maestro.degree', 'alumno.padre.user',];
-  protected $allowFilter = ['id', 'nombre', 'role_id'];
-  protected $allowSort = ['id', 'nombre', 'role_id'];
+  protected $allowFilter = ['id', 'name', 'role_id'];
+  protected $allowSort = ['id', 'name', 'role_id'];
 
   public function scopeIncluded(Builder $query)
   {

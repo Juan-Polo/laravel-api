@@ -20,10 +20,10 @@ class Degree extends Model
    * @var string[]
    */
 
-  protected $fillable = ['nombre', 'jornada', 'numeroAlumnos',];
+  protected $fillable = ['name', 'school_day', 'students',];
   protected $allowIncluded = ['alumnos', 'asignatura', 'chat'];
-  protected $allowFilter = ['id', 'nombre', 'jornada', 'numeroAlumnos'];
-  protected $allowSort = ['id', 'nombre', 'jornada', 'numeroAlumnos'];
+  protected $allowFilter = ['id', 'name', 'school_day', 'students'];
+  protected $allowSort = ['id', 'name', 'school_day', 'students'];
 
 
   public function scopeIncluded(Builder $query)
@@ -97,6 +97,9 @@ class Degree extends Model
       }
     }
   }
+
+
+
 
 
   /**

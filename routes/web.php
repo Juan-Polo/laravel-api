@@ -33,25 +33,25 @@ Route::get('/', function () {
 // Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
 //Ruta limpia
- Route::resource('users', UserController::class);
+// Route::resource('users', UserController::class);
 
 
 
-// GRADOS
-Route::resource('degrees', DegreeController::class);
+// // GRADOS
+// Route::resource('degrees', DegreeController::class);
 
 
-//MENSAJES
-Route::resource('mensajes', MensajeController::class);
+// //MENSAJES
+// Route::resource('mensajes', MensajeController::class);
 
 
-//NOTIFICATIONS
-Route::resource('notifications', NotificationController::class);
+// //NOTIFICATIONS
+// Route::resource('notifications', NotificationController::class);
 
 
 
-//CHATS
-Route::resource('chats', ChatController::class);
+// //CHATS
+// Route::resource('chats', ChatController::class);
 
 
 // Route::controller(UserController::class)->group(function () {

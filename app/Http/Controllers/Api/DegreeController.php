@@ -17,7 +17,7 @@ class DegreeController extends Controller
     public function index()
     {
 
-        
+
 
         $degrees = Degree::included()->filter()->sort()->get();
         return $degrees;
@@ -28,12 +28,12 @@ class DegreeController extends Controller
 
     public function store(Request $request)
     {
-        
+
 
         $request->validate([
-            'nombre' => 'required|max:255',
-            'jornada' => 'required|max:255',
-            'numeroAlumnos' => 'required|max:255'
+            'name' => 'required|max:255',
+            'school_day' => 'required|max:255',
+            'students' => 'required|max:255'
 
         ]);
 
@@ -63,13 +63,13 @@ class DegreeController extends Controller
 
     public function update(Request $request, Degree $degree)
     {
-      
+
 
 
         $request->validate([
-            'nombre' => 'required|max:255',
-            'jornada' => 'required|max:255',
-            'numeroAlumnos' => 'required|max:255',
+            'name' => 'required|max:255',
+            'school_day' => 'required|max:255',
+            'students' => 'required|max:255',
 
         ]);
 

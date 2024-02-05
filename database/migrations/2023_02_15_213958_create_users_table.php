@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('apellidos');
-            $table->string('gmail');
+            $table->string('name');
+            $table->string('lastname');
+            $table->string('email');
             $table->string('password');
             // $table->foreignId('role_id')->constrained();
             // $table->unsignedBigInteger('role_id')->unique();
@@ -40,5 +40,3 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
-
-
