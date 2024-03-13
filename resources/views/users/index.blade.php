@@ -14,14 +14,14 @@
 
         @foreach ($users as $user)
             <li>
-                <a href="{{ route('users.show', $user->id) }}"> {{ $user->nombre }} </a>
-
+                <a href="{{ route('users.show', $user->id) }}"> {{ $user->name }} </a>
+                <img src="{{ asset($user->image->image_url) }}" alt="{{ $user['name'] }}">
             </li>
         @endforeach
 
     </ul>
 
 
-    {{ $users->links() }}
+
 
 @endsection

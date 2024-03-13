@@ -20,6 +20,9 @@ class DegreeFactory extends Factory
             'name' => $this->faker->name(),
             'school_day' => $this->faker->name(),
             'students' => $this->faker->randomDigit(),
+            'image' => $this->faker->url(),
+
+
         ];
     }
 }

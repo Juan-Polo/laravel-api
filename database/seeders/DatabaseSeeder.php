@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         Alumno::factory(50)->create();
         Chat::factory(20)->create();
         Mensaje::factory(20)->create();
-        Asignatura::factory(8)->create();
+        Asignatura::factory(50)->create();
         Guia::factory(20)->create();
         Activity::factory(10)->create();
         Evidencia::factory(10)->create();

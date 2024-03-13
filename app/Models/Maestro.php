@@ -7,16 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Maestro extends Model
 {
-    use HasFactory;
-    public function user() {
-        return $this->belongsTo('App\Models\User');
-      }
+  use HasFactory;
+  public function user()
+  {
+    return $this->belongsTo('App\Models\User');
+  }
 
-      public function degrees() {
-        return $this->belongsToMany('App\Models\Degree');
-      }
+  public function degrees()
+  {
+    return $this->belongsToMany('App\Models\Degree');
+  }
 
-      public function asignatura() {
-        return $this->hasMany('App\Models\Asignatura');
-      }
+  public function asignatura()
+  {
+    return $this->hasMany('App\Models\Asignatura');
+  }
+
+
+
+  public function activities()
+  {
+    return $this->hasMany('App\Models\Activity');
+  }
 }

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Asignatura;
+use App\Models\Maestro;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Validation\Rules\Unique;
 
@@ -24,7 +25,8 @@ class ActivityFactory extends Factory
             'descripcion' => $this->faker->text(),
             'fechaInicio' => $this->faker->dateTime(),
             'fechaFin' => $this->faker->dateTime(),
-            'asignatura_id' => Asignatura::all()->random()->id
+            'asignatura_id' => Asignatura::all()->random()->id,
+            'maestro_id' => Maestro::all()->random()->id
         ];
     }
 }

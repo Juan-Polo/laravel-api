@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('school_day');
             $table->string('students');
+            $table->string('image');
             $table->timestamps();
         });
     }

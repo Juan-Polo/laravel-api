@@ -9,17 +9,26 @@
 
 
 
-    <form action="{{ route('degrees.store') }}" method="POST"  enctype="multipart/form-data">
+    <form action="{{ route('degrees.store') }}" method="POST" enctype="multipart/form-data">
 
         @csrf
-        <label>Nombre: <br> <input type="text" name="nombre"> </label>
+        <label>Nombre: <br> <input type="text" name="name"> </label>
         <br>
-        <label>Jornada: <br> <input type="text" name="jornada"> </label>
+        <label>Jornada: <br> <input type="text" name="school_day"> </label>
         <br>
-        <label>Numero de alumnos: <br> <input type="number" name="numeroAlumnos"> </label>
-        <label >Adjuntar archivo PDF</label>
+        <label>Numero de alumnos: <br> <input type="number" name="students"> </label>
+        <label>Adjuntar archivo PDF</label>
         <br><br>
-        <input type="file" name="ImgUrl" class="form-control-file" accept="png/*">
+
+
+        @foreach ($images as $images)
+            <label>
+                <input type="radio" name="image" value="{{ $images }}">
+                <img src="{{ $images }}" alt="Imagen" style="width: 200px">
+            </label>
+        @endforeach
+
+
         <br><br>
 
         <button type="submit" class="btn btn-primary"> Crear </button>

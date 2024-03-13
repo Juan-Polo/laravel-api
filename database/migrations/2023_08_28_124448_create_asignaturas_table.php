@@ -19,13 +19,16 @@ return new class extends Migration
 
             $table->unsignedBigInteger('maestro_id');
             $table->foreign('maestro_id')
-            ->references('id')
-            ->on('maestros');
+                ->references('id')
+                ->on('maestros');
 
             $table->unsignedBigInteger('degree_id');
-             $table->foreign('degree_id')
-             ->references('id')
-             ->on('degrees');
+            $table->foreign('degree_id')
+                ->references('id')
+                ->on('degrees');
+
+
+
             $table->timestamps();
         });
     }

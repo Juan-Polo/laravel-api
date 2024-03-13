@@ -20,7 +20,7 @@ class Degree extends Model
    * @var string[]
    */
 
-  protected $fillable = ['name', 'school_day', 'students',];
+  protected $fillable = ['name', 'school_day', 'students', 'image'];
   protected $allowIncluded = ['alumnos', 'asignatura', 'chat'];
   protected $allowFilter = ['id', 'name', 'school_day', 'students'];
   protected $allowSort = ['id', 'name', 'school_day', 'students'];
@@ -132,7 +132,7 @@ class Degree extends Model
   }
 
 
-  public function asignatura()
+  public function asignaturas()
   {
     return $this->hasMany('App\Models\Asignatura');
   }

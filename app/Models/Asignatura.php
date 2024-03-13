@@ -125,4 +125,8 @@ class Asignatura extends Model
   {
     return $this->hasMany('App\Models\Activity');
   }
+  public function degree()
+  {
+    return $this->belongsTo('App\Models\Degree');
+  }
 }

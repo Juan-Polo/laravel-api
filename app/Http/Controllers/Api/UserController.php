@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Role;
+use App\Models\Image;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -20,8 +22,10 @@ class UserController extends Controller
         //  $users = User::all();
         // return view('users.index', compact('users'));
 
-        $users = User::included()->filter()->sort()->get();
+        $users = User::included()->filter()->sort()->with('image', 'role')->get();
+
         return $users;
+        // return view('users.index', compact('users'));
     }
 
 
@@ -62,6 +66,7 @@ class UserController extends Controller
     {
 
         $user = User::included()->findOrFail($id);
+        $user = User::with('role', 'image')->find($id);
         return $user;
     }
 
