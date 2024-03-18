@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 class ImageController extends Controller
 {
 
-    private $disk = "public";
+
 
     public function getImage($id)
     {
@@ -190,4 +190,27 @@ class ImageController extends Controller
     //     $image->delete();
     //     return $image;
     // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

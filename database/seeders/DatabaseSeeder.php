@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
         // Role::factory(3)->create();
         $this->call(RoleSeeder::class);
         User::factory(30)->create();
-        Image::factory(50)->create();
+        Image::factory(10)->create();
         Degree::factory(5)->create();
         Notification::factory(50)->create();
         Maestro::factory(10)->create();
@@ -49,9 +49,9 @@ class DatabaseSeeder extends Seeder
         Alumno::factory(50)->create();
         Chat::factory(20)->create();
         Mensaje::factory(20)->create();
-        Asignatura::factory(50)->create();
+        Asignatura::factory(20)->create();
         Guia::factory(20)->create();
-        Activity::factory(10)->create();
-        Evidencia::factory(10)->create();
+        Activity::factory(30)->create();
+        Evidencia::factory(40)->create();
     }
 }

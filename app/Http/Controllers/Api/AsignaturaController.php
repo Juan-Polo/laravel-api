@@ -54,7 +54,7 @@ class AsignaturaController extends Controller
     {
         //$notification = Notification::with(['posts.user'])->findOrFail($id);
 
-        $asignatura = Asignatura::included()->findOrFail($id);
+        $asignatura = Asignatura::included()->with('activities.maestro.user.image')->findOrFail($id);
         return $asignatura;
 
         // return 'holaa';

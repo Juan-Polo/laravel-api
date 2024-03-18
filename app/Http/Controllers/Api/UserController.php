@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Alumno;
 use App\Models\Role;
 use App\Models\Image;
+use App\Models\Maestro;
+use App\Models\Padre;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -57,6 +60,22 @@ class UserController extends Controller
         ]);
 
         $user = User::create($request->all());
+
+
+
+        if ($request->role_id == 1) {
+            Maestro::create([
+                'user_id' => $user->id,
+                // Otros campos de maestro si es necesario
+            ]);
+        } elseif ($request->role_id == 2) {
+            Padre::create([
+                'user_id' => $user->id,
+
+                // Otros campos de alumno si es necesario
+            ]);
+        }
+
 
         return $user;
     }

@@ -7,12 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Padre extends Model
 {
-    use HasFactory;
-    public function user() {
-        return $this->belongsTo('App\Models\User');
-      }
+  use HasFactory;
 
-      public function alumno() {
-        return $this->hasMany('App\Models\Alumno');
-      }
+
+  protected $fillable = [
+    'user_id',
+  ];
+
+  public function user()
+  {
+    return $this->belongsTo('App\Models\User');
+  }
+
+  public function alumno()
+  {
+    return $this->hasMany('App\Models\Alumno');
+  }
 }

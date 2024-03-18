@@ -10,7 +10,7 @@ class Activity extends Model
     use HasFactory;
 
 
-    protected $fillable = ['actividad_url', 'titulo', 'descripcion', 'fechaInicio', 'fechaFin', 'asignatura_id', 'maestro_id'];
+    protected $fillable = ['actividad_url', 'titulo', 'descripcion', 'fechaInicio', 'fechaFin', 'asignatura_id'];
 
 
     public function asignatura()

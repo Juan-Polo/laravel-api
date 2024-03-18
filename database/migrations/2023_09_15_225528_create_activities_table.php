@@ -26,8 +26,7 @@ return new class extends Migration
             $table->foreign('asignatura_id')->references('id')->on('asignaturas');
 
 
-            $table->unsignedBigInteger('maestro_id');
-            $table->foreign('maestro_id')->references('id')->on('maestros');
+
 
 
 

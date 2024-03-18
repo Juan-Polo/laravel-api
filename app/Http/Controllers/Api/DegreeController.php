@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Degree;
+use App\Models\Maestro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -75,8 +76,17 @@ class DegreeController extends Controller
     public function show($id)
     {
 
+        $maestros = Maestro::with('user')->get();
+
+
         $degree = Degree::included()->with('asignaturas.maestro.user')->findOrFail($id);
-        return $degree;
+        return [
+            'degree' => $degree,
+            'maestros' => $maestros
+        ];
+
+        // $degree = Degree::included()->with('asignaturas.maestro.user')->findOrFail($id);
+        // return $degree;
     }
 
 

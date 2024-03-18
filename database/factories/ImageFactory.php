@@ -18,8 +18,8 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            'image_url' =>$this->faker ->url(),
-            'user_id'=>User::inRandomOrder()->first()
+            'image_url' => $this->faker->url(),
+            'user_id' => User::inRandomOrder()->first()
         ];
     }
 }

@@ -26,7 +26,7 @@ class ActivityFactory extends Factory
             'fechaInicio' => $this->faker->dateTime(),
             'fechaFin' => $this->faker->dateTime(),
             'asignatura_id' => Asignatura::all()->random()->id,
-            'maestro_id' => Maestro::all()->random()->id
+
         ];
     }
 }

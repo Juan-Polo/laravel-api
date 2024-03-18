@@ -32,24 +32,63 @@ class ActivityController extends Controller
     {
 
 
-        $request->validate([
-            'name' => 'required|max:255',
-            'lastname' => 'required|max:255',
-            'email' => 'required|max:255',
-            'password' => 'required|max:255',
-            'role_id' => 'required|max:255',
-        ]);
+        if ($request->hasFile('actividad_url')) {
+            $archivo = $request->file('actividad_url');
+            $archivoName = $archivo->getClientOriginalName();
+            $archivoName = pathinfo($archivoName, PATHINFO_FILENAME);
+            $nameArchivo = str_replace(" ", "_", $archivoName);
+            $extension = $archivo->getClientOriginalExtension();
+            $picture = date('His') . '-' . $nameArchivo . '-' . $extension;
 
-        $activity = Activity::create($request->all());
+            // Guardar la imagen en el disco 'storage'
+            $imagePath = $archivo->storeAs('public/archivos/actividades', $picture);
 
-        return $activity;
+            // Crear el modelo de imagen y guardar la ruta en la base de datos
+            $activityModel = new Activity();
+            // Asignar la ruta relativa de la imagen al atributo 'image_url'
+            $activityModel->actividad_url = 'storage/archivos/actividades/' . $picture;
+            $activityModel->titulo = $request->titulo;
+            $activityModel->descripcion = $request->descripcion;
+
+            $activityModel->fechaInicio = $request->fechaInicio;
+
+            $activityModel->fechaFin = $request->fechaFin;
+
+            $activityModel->asignatura_id  = $request->asignatura_id;
+
+            $activityModel->save();
+
+            return $activityModel;
+        } else {
+            return response()->json(["mensaje" => "error"]);
+        }
+
+
+
+
+
+
+        // $request->validate([
+        //     'actividad_url' => 'required|max:255',
+        //     'titulo' => 'required|max:255',
+        //     'descripcion' => 'required|max:255',
+        //     'fechaInicio' => 'required|max:255',
+        //     'fechaFin' => 'required|max:255',
+        //     'asignatura_id' => 'required|max:255',
+
+
+        // ]);
+
+        // $activity = Activity::create($request->all());
+
+        // return $activity;
     }
 
 
     public function show($id)
     {
 
-        $activity = Activity::included()->findOrFail($id);
+        $activity = Activity::with('evidencias')->find($id);
         // $activity = Activity::with('role', 'image')->find($id);
         return $activity;
     }
