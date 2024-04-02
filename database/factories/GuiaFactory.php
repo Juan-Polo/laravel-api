@@ -18,8 +18,9 @@ class GuiaFactory extends Factory
     public function definition()
     {
         return [
-            'guia_url' =>$this->faker ->url(),
-            'asignatura_id'=>Asignatura::inRandomOrder()->first()
+            'guia_url' => $this->faker->url(),
+            'descripcion' => $this->faker->text(),
+            'asignatura_id' => Asignatura::inRandomOrder()->first()
         ];
     }
 }

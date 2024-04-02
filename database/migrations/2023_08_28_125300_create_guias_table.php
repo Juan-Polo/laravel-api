@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('guias', function (Blueprint $table) {
             $table->id();
+            $table->string('descripcion');
             $table->string('Guia_url');
-
             $table->unsignedBigInteger('asignatura_id');
             $table->foreign('asignatura_id')
-            ->references('id')
-            ->on('asignaturas');
+                ->references('id')
+                ->on('asignaturas');
 
             $table->timestamps();
         });

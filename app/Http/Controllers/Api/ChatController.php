@@ -17,9 +17,6 @@ class ChatController extends Controller
 
     public function index()
     {
-
-
-
         $chats = Chat::included()->filter()->sort()->get();
         return $chats;
     }

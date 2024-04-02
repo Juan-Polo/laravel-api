@@ -9,7 +9,7 @@ use App\Http\Controllers\Api\MensajeController;
 use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\UserController;
-
+use App\Http\Controllers\EvidenciaController;
 use App\Models\Image;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -34,6 +34,8 @@ Route::resource('degrees', DegreeController::class);
 Route::get('getImages', [DegreeController::class, 'getImages'])->name('degrees.getImages');
 Route::resource('asignaturas', AsignaturaController::class);
 Route::resource('activities', ActivityController::class);
+Route::resource('evidencias', EvidenciaController::class);
+
 
 Route::resource('roles', RoleController::class);
 
