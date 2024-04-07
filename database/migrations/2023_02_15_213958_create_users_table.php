@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('role_id')->constrained();
             $table->foreign('role_id')
                 ->references('id')
-                ->on('roles');
+                ->on('roles')->onDelete('cascade');
 
             $table->timestamps();
         });

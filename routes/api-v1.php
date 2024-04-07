@@ -9,7 +9,8 @@ use App\Http\Controllers\Api\MensajeController;
 use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\EvidenciaController;
+use App\Http\Controllers\Api\EvidenciaController;
+use App\Http\Controllers\Api\HorarioController;
 use App\Models\Image;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -35,6 +36,8 @@ Route::get('getImages', [DegreeController::class, 'getImages'])->name('degrees.g
 Route::resource('asignaturas', AsignaturaController::class);
 Route::resource('activities', ActivityController::class);
 Route::resource('evidencias', EvidenciaController::class);
+Route::resource('horarios', HorarioController::class);
+
 
 
 Route::resource('roles', RoleController::class);

@@ -38,7 +38,7 @@ class ActivityController extends Controller
             $archivoName = pathinfo($archivoName, PATHINFO_FILENAME);
             $nameArchivo = str_replace(" ", "_", $archivoName);
             $extension = $archivo->getClientOriginalExtension();
-            $picture = date('His') . '-' . $nameArchivo . '-' . $extension;
+            $picture = date('His') . '-' . $nameArchivo . '-.' . $extension;
 
             // Guardar la imagen en el disco 'storage'
             $imagePath = $archivo->storeAs('public/archivos/actividades', $picture);

@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('degree_maestro', function (Blueprint $table) {
             $table->id();
 
-            
+
             $table->unsignedBigInteger('degree_id');
-            $table->foreign('degree_id')->references('id')->on('degrees');
+            $table->foreign('degree_id')->references('id')->on('degrees')->onDelete('cascade');;
 
             $table->unsignedBigInteger('maestro_id');
-            $table->foreign('maestro_id')->references('id')->on('maestros');
+            $table->foreign('maestro_id')->references('id')->on('maestros')->onDelete('cascade');;
 
             $table->timestamps();
         });

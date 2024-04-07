@@ -21,9 +21,9 @@ return new class extends Migration
 
 
             $table->unsignedBigInteger('degree_id');
-             $table->foreign('degree_id')
-             ->references('id')
-             ->on('degrees');
+            $table->foreign('degree_id')
+                ->references('id')
+                ->on('degrees')->onDelete('cascade');
             $table->timestamps();
         });
     }

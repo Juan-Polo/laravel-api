@@ -79,7 +79,7 @@ class DegreeController extends Controller
         $maestros = Maestro::with('user')->get();
 
 
-        $degree = Degree::included()->with('asignaturas.maestro.user')->findOrFail($id);
+        $degree = Degree::included()->with('asignaturas.maestro.user', 'horario')->findOrFail($id);
         return [
             'degree' => $degree,
             'maestros' => $maestros

@@ -21,10 +21,10 @@ return new class extends Migration
             $table->dateTime('fechaHora');
 
             $table->unsignedBigInteger('chat_id');
-             $table->foreign('chat_id')
-             ->references('id')
-             ->on('chats');
-             
+            $table->foreign('chat_id')
+                ->references('id')
+                ->on('chats')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

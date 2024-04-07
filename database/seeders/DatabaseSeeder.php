@@ -11,6 +11,7 @@ use App\Models\Chat;
 use App\Models\Degree;
 use App\Models\Evidencia;
 use App\Models\Guia;
+use App\Models\Horario;
 use App\Models\Image;
 use App\Models\Maestro;
 use App\Models\Mensaje;
@@ -53,5 +54,6 @@ class DatabaseSeeder extends Seeder
         Guia::factory(20)->create();
         Activity::factory(30)->create();
         Evidencia::factory(40)->create();
+        Horario::factory(20)->create();
     }
 }

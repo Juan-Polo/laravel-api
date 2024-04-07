@@ -143,8 +143,8 @@ class Degree extends Model
     return $this->hasMany('App\Models\Alumno');
   }
 
-  public function chat()
+  public function horario()
   {
-    return $this->hasOne('App\Models\Chat');
+    return $this->hasOne(Horario::class);
   }
 }

@@ -90,12 +90,7 @@ class UserController extends Controller
     }
 
 
-    public function edit(User $user)
-    {
 
-        $roles = Role::all();
-        return view('users.edit', compact('user'), ['role' => $roles]);
-    }
 
 
     public function update(Request $request, User $user)
